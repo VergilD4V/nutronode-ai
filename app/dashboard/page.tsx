@@ -471,7 +471,7 @@ export default function DashboardPage() {
       const page = await pdf.getPage(pageNum);
       const content = await page.getTextContent();
       const strings = content.items
-        .map((it) => ("str" in it ? (it.str as string) : ""))
+      .map((it: any) => ("str" in it ? it.str : ""))
         .filter(Boolean);
       pageTexts.push(strings.join(" "));
     }
