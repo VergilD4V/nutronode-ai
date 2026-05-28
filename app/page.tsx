@@ -1,6 +1,7 @@
 "use client";
 
 import React from "react";
+import Link from "next/link";
 
 function SparkIcon({ className }: { className?: string }) {
   return (
@@ -57,7 +58,7 @@ function IconCard({
   icon: React.ReactNode;
 }) {
   return (
-    <div className="group relative overflow-hidden rounded-3xl bg-white/5 p-6 backdrop-blur-xl ring-1 ring-white/10 transition-all duration-300 hover:-translate-y-1 hover:bg-white/10 hover:ring-blue-400/30">
+    <div className="group relative overflow-hidden rounded-3xl bg-[var(--panel)] p-6 backdrop-blur-xl ring-1 ring-[var(--panel-border)] shadow-[var(--panel-shadow)] transition-all duration-300 hover:-translate-y-1 hover:ring-blue-400/30">
       <div className="absolute -right-10 -top-10 h-28 w-28 rounded-full bg-blue-500/20 blur-2xl opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
       <div className="relative">
         <div className="flex items-center gap-3">
@@ -66,9 +67,7 @@ function IconCard({
           </div>
           <h3 className="text-lg font-semibold tracking-tight">{title}</h3>
         </div>
-        <p className="mt-3 text-sm leading-relaxed text-gray-300/90">
-          {description}
-        </p>
+        <p className="mt-3 text-sm leading-relaxed text-[var(--muted)]">{description}</p>
       </div>
     </div>
   );
@@ -139,7 +138,7 @@ export default function Home() {
   ];
 
   return (
-    <main className="min-h-screen bg-black text-white overflow-hidden scroll-smooth">
+    <main className="min-h-screen bg-[var(--background)] text-[var(--foreground)] overflow-hidden scroll-smooth transition-colors duration-300">
       {/* Ambient background */}
       <div aria-hidden="true" className="pointer-events-none absolute inset-0">
         <div className="absolute left-1/2 top-[-260px] h-[720px] w-[720px] -translate-x-1/2 rounded-full bg-blue-500/20 blur-[120px]" />
@@ -156,9 +155,9 @@ export default function Home() {
       {/* Navbar */}
       <nav className="relative z-10 border-b border-white/10 bg-black/30 backdrop-blur-xl">
         <div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-5">
-          <a
-            href="#top"
-            className="group inline-flex items-center gap-3 rounded-xl px-2 py-1 transition-colors hover:bg-white/5"
+          <Link
+            href="/"
+            className="group inline-flex items-center gap-3 rounded-xl px-2 py-1 transition-colors hover:bg-[var(--chip)]"
           >
             <span className="relative grid h-10 w-10 place-items-center rounded-2xl bg-blue-500/15 ring-1 ring-blue-400/25 text-blue-200">
               <SparkIcon className="h-5 w-5" />
@@ -167,14 +166,14 @@ export default function Home() {
             <span className="text-[15px] font-semibold tracking-wide">
               AI Study Assistant
             </span>
-          </a>
+          </Link>
 
           <div className="flex items-center gap-3 md:hidden">
             <button
               type="button"
               onClick={() => setMenuOpen((v) => !v)}
               aria-label="Toggle navigation"
-              className="inline-flex h-10 w-10 items-center justify-center rounded-xl bg-white/5 ring-1 ring-white/10 transition-all duration-300 hover:bg-white/10"
+              className="inline-flex h-10 w-10 items-center justify-center rounded-xl bg-[var(--panel)] ring-1 ring-[var(--panel-border)] shadow-[var(--panel-shadow)] transition-all duration-300 hover:ring-blue-400/30"
             >
               <span className="relative block h-5 w-5">
                 <span
@@ -205,37 +204,37 @@ export default function Home() {
           <div className="hidden items-center gap-8 md:flex">
             <a
               href="#features"
-              className="text-sm text-gray-300/90 transition-colors hover:text-white"
+              className="text-sm text-[var(--muted)] transition-colors hover:text-[var(--foreground)]"
             >
               Features
             </a>
             <a
               href="#stats"
-              className="text-sm text-gray-300/90 transition-colors hover:text-white"
+              className="text-sm text-[var(--muted)] transition-colors hover:text-[var(--foreground)]"
             >
               Stats
             </a>
             <a
               href="#get-started"
-              className="text-sm text-gray-300/90 transition-colors hover:text-white"
+              className="text-sm text-[var(--muted)] transition-colors hover:text-[var(--foreground)]"
             >
               Get Started
             </a>
           </div>
 
           <div className="hidden md:flex">
-            <a
-              href="#get-started"
+            <Link
+              href="/dashboard"
               className="inline-flex items-center justify-center rounded-2xl bg-blue-500 px-5 py-2.5 text-sm font-semibold text-black shadow-[0_0_0_1px_rgba(59,130,246,0.35),0_16px_40px_rgba(59,130,246,0.25)] transition-all duration-300 hover:-translate-y-0.5 hover:bg-blue-400 hover:shadow-[0_0_0_1px_rgba(147,197,253,0.55),0_18px_50px_rgba(59,130,246,0.35)]"
             >
               Start Now
-            </a>
+            </Link>
           </div>
         </div>
 
         <div className="relative z-10 md:hidden">
           <div className="mx-auto max-w-6xl px-6 pb-5">
-            <div className="overflow-hidden rounded-2xl bg-white/5 ring-1 ring-white/10 backdrop-blur-xl">
+            <div className="overflow-hidden rounded-2xl bg-[var(--panel)] ring-1 ring-[var(--panel-border)] shadow-[var(--panel-shadow)] backdrop-blur-xl">
               <div
                 className={
                   menuOpen
@@ -266,13 +265,13 @@ export default function Home() {
                     Get Started
                   </a>
 
-                  <a
-                    href="#get-started"
+                  <Link
+                    href="/dashboard"
                     onClick={() => setMenuOpen(false)}
                     className="mt-2 inline-flex items-center justify-center rounded-2xl bg-blue-500 px-5 py-3 text-sm font-semibold text-black shadow-[0_0_0_1px_rgba(59,130,246,0.35)] transition-all duration-300 hover:-translate-y-0.5 hover:bg-blue-400"
                   >
                     Start Now
-                  </a>
+                  </Link>
                 </div>
               </div>
             </div>
@@ -296,19 +295,19 @@ export default function Home() {
               </span>
             </h1>
 
-            <p className="mt-5 max-w-2xl text-base leading-relaxed text-gray-300 sm:text-lg">
+            <p className="mt-5 max-w-2xl text-base leading-relaxed text-[var(--muted)] sm:text-lg">
               Turn your notes into premium summaries, quizzes, and adaptive study plans.
               Upload content, get clear understanding fast, and stay exam-ready.
             </p>
 
             {/* Buttons */}
             <div className="mt-10 flex w-full flex-col items-stretch justify-center gap-3 sm:w-auto sm:flex-row">
-              <a
-                href="#get-started"
+              <Link
+                href="/dashboard"
                 className="inline-flex items-center justify-center gap-2 rounded-2xl bg-gradient-to-b from-blue-500 to-blue-600 px-7 py-3.5 text-sm font-semibold text-black shadow-[0_0_0_1px_rgba(59,130,246,0.35),0_18px_60px_rgba(59,130,246,0.35)] transition-all duration-300 hover:-translate-y-0.5 hover:brightness-110"
               >
                 Start Learning
-                <span className="grid h-6 w-6 place-items-center rounded-xl bg-white/15 text-blue-50 ring-1 ring-white/10">
+                <span className="grid h-6 w-6 place-items-center rounded-xl bg-blue-500/15 text-blue-50 ring-1 ring-blue-400/20">
                   <svg
                     viewBox="0 0 24 24"
                     className="h-4 w-4"
@@ -331,10 +330,10 @@ export default function Home() {
                     />
                   </svg>
                 </span>
-              </a>
+              </Link>
               <a
                 href="#features"
-                className="inline-flex items-center justify-center rounded-2xl border border-white/15 bg-white/5 px-7 py-3.5 text-sm font-semibold text-white/90 backdrop-blur-xl transition-all duration-300 hover:-translate-y-0.5 hover:bg-white/10 hover:border-blue-300/30"
+                className="inline-flex items-center justify-center rounded-2xl border border-[var(--panel-border)] bg-[var(--panel)] px-7 py-3.5 text-sm font-semibold text-[var(--foreground)] shadow-[var(--panel-shadow)] backdrop-blur-xl transition-all duration-300 hover:-translate-y-0.5 hover:ring-1 hover:ring-blue-400/30"
               >
                 Explore Features
               </a>
@@ -342,24 +341,24 @@ export default function Home() {
 
             {/* Hero supporting panel */}
             <div className="mt-12 grid w-full grid-cols-1 gap-4 sm:grid-cols-2 lg:mt-14">
-              <div className="relative overflow-hidden rounded-3xl bg-white/5 p-6 backdrop-blur-xl ring-1 ring-white/10 transition-all duration-300 hover:bg-white/10 hover:ring-blue-400/30">
+              <div className="relative overflow-hidden rounded-3xl bg-[var(--panel)] p-6 backdrop-blur-xl ring-1 ring-[var(--panel-border)] shadow-[var(--panel-shadow)] transition-all duration-300 hover:ring-blue-400/30">
                 <div className="absolute -left-8 -top-10 h-28 w-28 rounded-full bg-blue-500/20 blur-2xl" />
                 <div className="relative">
                   <div className="text-sm font-semibold text-blue-200">
                     Upload notes
                   </div>
-                  <div className="mt-2 text-sm leading-relaxed text-gray-300/90">
+                  <div className="mt-2 text-sm leading-relaxed text-[var(--muted)]">
                     Add text or content and let AI do the heavy lifting.
                   </div>
                 </div>
               </div>
-              <div className="relative overflow-hidden rounded-3xl bg-white/5 p-6 backdrop-blur-xl ring-1 ring-white/10 transition-all duration-300 hover:bg-white/10 hover:ring-blue-400/30">
+              <div className="relative overflow-hidden rounded-3xl bg-[var(--panel)] p-6 backdrop-blur-xl ring-1 ring-[var(--panel-border)] shadow-[var(--panel-shadow)] transition-all duration-300 hover:ring-blue-400/30">
                 <div className="absolute -right-8 -top-10 h-28 w-28 rounded-full bg-cyan-400/15 blur-2xl" />
                 <div className="relative">
                   <div className="text-sm font-semibold text-blue-200">
                     Generate study assets
                   </div>
-                  <div className="mt-2 text-sm leading-relaxed text-gray-300/90">
+                  <div className="mt-2 text-sm leading-relaxed text-[var(--muted)]">
                     Summaries, quizzes, and materials that match your learning goals.
                   </div>
                 </div>
@@ -379,7 +378,7 @@ export default function Home() {
             <h2 className="mt-3 text-2xl font-bold tracking-tight sm:text-3xl">
               Built to turn effort into understanding
             </h2>
-            <p className="mt-3 max-w-2xl text-sm leading-relaxed text-gray-300/90 sm:text-base">
+            <p className="mt-3 max-w-2xl text-sm leading-relaxed text-[var(--muted)] sm:text-base">
               Premium outputs for modern students: clarity, retention, and actionable practice.
             </p>
           </div>
@@ -388,7 +387,7 @@ export default function Home() {
             {stats.map((s) => (
               <div
                 key={s.value}
-                className="group relative rounded-3xl bg-white/5 p-6 ring-1 ring-white/10 backdrop-blur-xl transition-all duration-300 hover:-translate-y-1 hover:bg-white/10 hover:ring-blue-400/30"
+                className="group relative rounded-3xl bg-[var(--panel)] p-6 ring-1 ring-[var(--panel-border)] shadow-[var(--panel-shadow)] backdrop-blur-xl transition-all duration-300 hover:-translate-y-1 hover:ring-blue-400/30"
               >
                 <div className="absolute -right-10 -top-10 h-28 w-28 rounded-full bg-blue-500/20 blur-2xl opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
                 <div className="relative">
@@ -400,7 +399,7 @@ export default function Home() {
                       {s.icon}
                     </div>
                   </div>
-                  <div className="mt-2 text-sm font-medium text-gray-300/90">
+                  <div className="mt-2 text-sm font-medium text-[var(--muted)]">
                     {s.label}
                   </div>
                 </div>
@@ -420,7 +419,7 @@ export default function Home() {
             <h2 className="mt-3 text-2xl font-bold tracking-tight sm:text-3xl">
               From notes to mastery, in minutes
             </h2>
-            <p className="mt-3 max-w-2xl text-sm leading-relaxed text-gray-300/90 sm:text-base">
+            <p className="mt-3 max-w-2xl text-sm leading-relaxed text-[var(--muted)] sm:text-base">
               Upload. Summarize. Quiz. Practice. Repeat. The whole process feels fast, focused, and premium.
             </p>
           </div>
@@ -441,7 +440,7 @@ export default function Home() {
       {/* Get started */}
       <section id="get-started" className="relative z-10">
         <div className="mx-auto max-w-6xl px-6 pt-14 pb-16 md:pt-20">
-          <div className="relative overflow-hidden rounded-3xl bg-white/5 p-7 backdrop-blur-xl ring-1 ring-white/10 sm:p-10">
+          <div className="relative overflow-hidden rounded-3xl bg-[var(--panel)] p-7 backdrop-blur-xl ring-1 ring-[var(--panel-border)] shadow-[var(--panel-shadow)] sm:p-10">
             <div className="absolute -left-20 -top-20 h-64 w-64 rounded-full bg-blue-500/20 blur-3xl" />
             <div className="absolute -right-20 -bottom-20 h-64 w-64 rounded-full bg-cyan-400/10 blur-3xl" />
             <div className="relative grid gap-6 md:grid-cols-[1.4fr_1fr] md:items-center">
@@ -453,25 +452,25 @@ export default function Home() {
                 <h2 className="mt-4 text-2xl font-bold tracking-tight sm:text-3xl">
                   Ready to level up your studying?
                 </h2>
-                <p className="mt-3 max-w-xl text-sm leading-relaxed text-gray-300/90 sm:text-base">
+                <p className="mt-3 max-w-xl text-sm leading-relaxed text-[var(--muted)] sm:text-base">
                   Start by uploading your notes. Get a high-quality summary, generate quizzes, and build a study plan that actually fits your timeline.
                 </p>
               </div>
 
               <div className="flex flex-col gap-3">
-                <a
-                  href="#"
+                <Link
+                  href="/dashboard"
                   className="inline-flex items-center justify-center rounded-2xl bg-blue-500 px-7 py-3.5 text-sm font-semibold text-black shadow-[0_0_0_1px_rgba(59,130,246,0.35),0_18px_60px_rgba(59,130,246,0.35)] transition-all duration-300 hover:-translate-y-0.5 hover:bg-blue-400"
                 >
                   Start Now
-                </a>
-                <a
-                  href="#"
-                  className="inline-flex items-center justify-center rounded-2xl border border-white/15 bg-white/5 px-7 py-3.5 text-sm font-semibold text-white/90 backdrop-blur-xl transition-all duration-300 hover:-translate-y-0.5 hover:bg-white/10 hover:border-blue-300/30"
+                </Link>
+                <Link
+                  href="/dashboard"
+                  className="inline-flex items-center justify-center rounded-2xl border border-[var(--panel-border)] bg-[var(--panel)] px-7 py-3.5 text-sm font-semibold text-[var(--foreground)] shadow-[var(--panel-shadow)] backdrop-blur-xl transition-all duration-300 hover:-translate-y-0.5 hover:ring-1 hover:ring-blue-400/30"
                 >
                   See a Demo
-                </a>
-                <p className="text-xs text-gray-400/90">
+                </Link>
+                <p className="text-xs text-[var(--muted)]">
                   No clutter. Just study-ready outputs.
                 </p>
               </div>
@@ -481,19 +480,19 @@ export default function Home() {
       </section>
 
       {/* Footer */}
-      <footer className="relative z-10 border-t border-white/10 bg-black/20 backdrop-blur-xl">
+      <footer className="relative z-10 border-t border-[var(--panel-border)] bg-[var(--panel)] backdrop-blur-xl">
         <div className="mx-auto flex max-w-6xl flex-col gap-3 px-6 py-8 sm:flex-row sm:items-center sm:justify-between">
-          <div className="text-sm text-gray-300/90">
+          <div className="text-sm text-[var(--muted)]">
             {new Date().getFullYear()} AI Study Assistant
           </div>
           <div className="flex gap-4 text-sm">
-            <a href="#features" className="text-gray-300/90 transition-colors hover:text-white">
+            <a href="#features" className="text-[var(--muted)] transition-colors hover:text-[var(--foreground)]">
               Features
             </a>
-            <a href="#stats" className="text-gray-300/90 transition-colors hover:text-white">
+            <a href="#stats" className="text-[var(--muted)] transition-colors hover:text-[var(--foreground)]">
               Stats
             </a>
-            <a href="#get-started" className="text-gray-300/90 transition-colors hover:text-white">
+            <a href="#get-started" className="text-[var(--muted)] transition-colors hover:text-[var(--foreground)]">
               Start
             </a>
           </div>
