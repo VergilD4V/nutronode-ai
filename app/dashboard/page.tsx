@@ -628,6 +628,17 @@ export default function DashboardPage() {
               </div>
             </div>
           </div>
+          <div className="mt-auto px-4 pb-4 pt-6">
+  <div className="rounded-2xl border border-white/10 bg-white/5 p-4 text-center">
+    <p className="text-sm font-semibold text-white/80">
+      Nutronote AI
+    </p>
+
+    <p className="mt-1 text-xs text-white/40">
+      Designed & developed by Tokavi
+    </p>
+  </div>
+</div>
         </aside>
 
         <div className="relative flex min-w-0 flex-1 flex-col">
