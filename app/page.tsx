@@ -164,7 +164,7 @@ export default function Home() {
               <span className="pointer-events-none absolute -inset-1 rounded-3xl bg-blue-500/10 blur-xl opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
             </span>
             <span className="text-[15px] font-semibold tracking-wide">
-              AI Study Assistant
+            Nutronote AI
             </span>
           </Link>
 
@@ -447,7 +447,7 @@ export default function Home() {
               <div>
                 <div className="inline-flex items-center gap-2 rounded-full border border-blue-500/30 bg-blue-500/10 px-4 py-2 text-xs font-semibold tracking-wide text-blue-200">
                   <SparkIcon className="h-4 w-4" />
-                  AI Study Assistant
+                  Nutronote AI
                 </div>
                 <h2 className="mt-4 text-2xl font-bold tracking-tight sm:text-3xl">
                   Ready to level up your studying?
@@ -483,7 +483,7 @@ export default function Home() {
       <footer className="relative z-10 border-t border-[var(--panel-border)] bg-[var(--panel)] backdrop-blur-xl">
         <div className="mx-auto flex max-w-6xl flex-col gap-3 px-6 py-8 sm:flex-row sm:items-center sm:justify-between">
           <div className="text-sm text-[var(--muted)]">
-            {new Date().getFullYear()} AI Study Assistant
+            {new Date().getFullYear()} Nutronote AI
           </div>
           <div className="flex gap-4 text-sm">
             <a href="#features" className="text-[var(--muted)] transition-colors hover:text-[var(--foreground)]">
